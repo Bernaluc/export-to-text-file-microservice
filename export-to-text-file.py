@@ -1,4 +1,3 @@
-# Example using Flask
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -17,7 +16,7 @@ def extract_ids():
             store_data = data['store']
 
             page_ids = []
-            shape_ids = []
+            shape_ids = []d
 
             # Iterate through the keys in store_data
             for key, value in store_data.items():
