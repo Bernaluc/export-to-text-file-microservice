@@ -34,3 +34,27 @@ response = requests.post("http://localhost:5000/extract_ids", json=data)
 # Print the response
 print(response.status_code)  # HTTP status code
 print(response.json())       # Response data
+
+```
+
+```plantuml
+@startuml
+
+title UML Sequence Diagram: Requesting and Receiving Data
+
+participant Client
+participant "Flask Server" as FlaskServer
+participant Microservice
+
+Client -> FlaskServer: POST /extract_ids\nJSON Payload
+FlaskServer -> Microservice: Forward Request
+activate Microservice
+Note over Microservice: Processing Request\nExtracting IDs
+Microservice -> Microservice: Access JSON Data
+Note over Microservice: Data Extraction
+Microservice --> FlaskServer: JSON Response
+deactivate Microservice
+FlaskServer --> Client: HTTP Response with JSON Data
+
+@enduml
+```
